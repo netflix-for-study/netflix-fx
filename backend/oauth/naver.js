@@ -1,14 +1,16 @@
 const passport = require("passport");
 const NaverStrategy = require("passport-naver").Strategy;
 const config = require("config");
+
 const User = require("../models/User");
+const port = require("../utils/port");
 
 passport.use(
   new NaverStrategy(
     {
       clientID: config.get("NAVER_CLIENT_ID"),
       clientSecret: config.get("NAVER_CLIENT_SECRET"),
-      callbackURL: "https://localhost:5000/oauth/naver/callback",
+      callbackURL: `https://localhost:${port}/oauth/naver/callback`,
       passReqToCallback: true,
     },
     function (accessToken, refreshToken, profile, done) {

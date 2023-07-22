@@ -1,11 +1,12 @@
 const express = require("express");
-const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const config = require("config");
-const router = express.Router();
 
+const User = require("../models/User");
 const admin = require("../middleware/admin");
 const auth = require("../middleware/auth");
+
+const router = express.Router();
 
 //사용자 회원가입
 router.post("/signup", async (req, res) => {

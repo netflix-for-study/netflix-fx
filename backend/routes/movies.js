@@ -1,9 +1,10 @@
 const express = require("express");
-const router = express.Router();
 const {
   fetchPopularMovies,
   fetchMovieDetails,
 } = require("../services/tmdbService");
+
+const router = express.Router();
 
 //인기 영화목록 조회
 router.get("/", async (req, res) => {

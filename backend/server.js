@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const MongoClient = require("mongodb").MongoClient;
 const config = require("config");
+const cors = require("cors");
+
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const Movie = require("./models/Movie");
 const movies = require("./routes/movies");
 const profile = require("./routes/profile");
 const oauth = require("./routes/oauth");
+const port = require("./utils/port");
 
 const app = express();
 
@@ -30,6 +32,7 @@ mongoose
     console.log("MongoDB connection error:", err);
   });
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/users", users);
 app.use("/api/auth", auth);
@@ -38,6 +41,6 @@ app.use("/api/profile", profile);
 app.use("/api/oauth", oauth);
 
 //서버 연결
-app.listen("5000", function () {
-  console.log("listening on 5000");
+app.listen(port, function () {
+  console.log(`listening on ${port}`);
 });

@@ -1,9 +1,11 @@
 const express = require("express");
 const config = require("config");
 const CryptoJS = require("crypto-js");
-const router = express.Router();
 const _ = require("lodash");
+
 const User = require("../models/User");
+
+const router = express.Router();
 
 //사용자 로그인
 router.post("/login", async (req, res) => {
