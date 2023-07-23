@@ -38,7 +38,13 @@ const fetchMovieDetails = async (movieId) => {
   }
 };
 
+//영화 이미지 받아오기
+const getImageUrl = (path, size = 500) => {
+  return `https://image.tmdb.org/t/p/w${size}${path}`;
+};
+
 module.exports = {
   fetchPopularMovies,
   fetchMovieDetails,
+  getImageUrl,
 };
