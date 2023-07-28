@@ -3,6 +3,7 @@ const {
   fetchPopularMovies,
   fetchMovieDetails,
   getImageUrl,
+  getVideoUrl,
 } = require("../services/tmdbService");
 
 const router = express.Router();
