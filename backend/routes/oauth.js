@@ -1,8 +1,9 @@
 const express = require("express");
-const router = express.Router();
 const googlePassport = require("../oauth/google");
 const kakaoPassport = require("../oauth/kakao");
 const naverPassport = require("../oauth/naver");
+
+const router = express.Router();
 
 // Google 로그인 요청 처리
 router.get(

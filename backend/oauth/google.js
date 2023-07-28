@@ -1,14 +1,16 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const config = require("config");
+
 const User = require("../models/User");
+const port = require("../utils/port");
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: config.get("GOOGLE_CLIENT_ID"),
       clientSecret: config.get("GOOGLE_CLIENT_SECRET"),
-      callbackURL: "https://localhost:5000/oauth/google/callback",
+      callbackURL: `https://localhost:${port}/oauth/google/callback`,
       passReqToCallback: true,
     },
     function (accessToken, refreshToken, profile, done) {

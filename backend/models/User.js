@@ -24,8 +24,10 @@ const userSchema = new mongoose.Schema(
         message: "프로필은 최대 5개까지 등록 가능합니다.",
       },
     },
+
     //isAdmin: 관리자 권한
     isAdmin: { type: Boolean, default: false },
+
     //oauth 로그인
     google: {
       id: String,
@@ -45,6 +47,7 @@ const userSchema = new mongoose.Schema(
       email: String,
       profilePicture: String,
     },
+
     watchList: [{ type: mongoose.Schema.Types.ObjectId, ref: Movie }],
     favoriteList: [{ type: mongoose.Schema.Types.ObjectId, ref: Movie }],
   },

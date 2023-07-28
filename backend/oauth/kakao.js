@@ -1,13 +1,15 @@
 const passport = require("passport");
 const KakaoStrategy = require("passport-kakao").Strategy;
 const config = require("config");
+
 const User = require("../models/User");
+const port = require("../utils/port");
 
 passport.use(
   new KakaoStrategy(
     {
       clientID: config.get("KAKAO_CLIENT_ID"),
-      callbackURL: "https://localhost:5000/oauth/kakao/callback",
+      callbackURL: `https://localhost:${port}/oauth/kakao/callback`,
       passReqToCallback: true,
     },
     function (accessToken, refreshToken, profile, done) {

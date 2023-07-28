@@ -1,8 +1,10 @@
 const express = require("express");
-const router = express.Router();
 const config = require("config");
+
 const User = require("../models/User");
 const auth = require("../middleware/auth");
+
+const router = express.Router();
 
 // 프로필 페이지
 router.get("/", auth, async (req, res) => {
