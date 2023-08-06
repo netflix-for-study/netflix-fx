@@ -1,6 +1,9 @@
+const config = require("config");
+const username = config.get("username");
+
 module.exports = function (req, res, next) {
   //username이 admin인 경우, 관리자로 설정
-  const isAdmin = req.user.username === "admin";
+  const isAdmin = req.user.username === username;
   //관리자 확인
   if (isAdmin) return next();
   //관리자 외 접근거부(관리자 권한 확인)
