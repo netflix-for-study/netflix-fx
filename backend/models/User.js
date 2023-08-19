@@ -49,7 +49,8 @@ const userSchema = new mongoose.Schema(
     },
 
     watchList: [{ type: mongoose.Schema.Types.ObjectId, ref: Movie }],
-    favoriteList: [{ type: mongoose.Schema.Types.ObjectId, ref: Movie }],
+    favoriteList: [{ type: Number }],
+    // favoriteList: [{ type: mongoose.Schema.Types.ObjectId, ref: Movie }],
   },
   { timestamps: true }
 );

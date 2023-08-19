@@ -34,11 +34,11 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
-app.use("/users", users);
-app.use("/auth", auth);
-app.use("/movies", movies);
-app.use("/profile", profile);
-app.use("/oauth", oauth);
+app.use("/api/users", users);
+app.use("/api/auth", auth);
+app.use("/api/movies", movies);
+app.use("/api/profile", profile);
+app.use("/api/oauth", oauth);
 
 //서버 연결
 app.listen(port, function () {

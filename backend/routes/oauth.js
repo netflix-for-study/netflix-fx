@@ -7,13 +7,13 @@ const router = express.Router();
 
 // Google 로그인 요청 처리
 router.get(
-  "/oauth/google",
+  "/google",
   googlePassport.authenticate("google", { scope: ["profile"] })
 );
 
 // Google 로그인 콜백 처리
 router.get(
-  "/oauth/google/callback",
+  "/google/callback",
   googlePassport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
     res.redirect("/profile");
@@ -21,11 +21,11 @@ router.get(
 );
 
 // Kakao 로그인 요청 처리
-router.get("/oauth/kakao", kakaoPassport.authenticate("kakao"));
+router.get("/kakao", kakaoPassport.authenticate("kakao"));
 
 // Kakao 로그인 콜백 처리
 router.get(
-  "/oauth/kakao/callback",
+  "/kakao/callback",
   kakaoPassport.authenticate("kakao", { failureRedirect: "/login" }),
   function (req, res) {
     res.redirect("/profile");
@@ -33,11 +33,11 @@ router.get(
 );
 
 // Naver 로그인 요청 처리
-router.get("/oauth/naver", naverPassport.authenticate("naver"));
+router.get("/naver", naverPassport.authenticate("naver"));
 
 // Naver 로그인 콜백 처리
 router.get(
-  "/oauth/naver/callback",
+  "/naver/callback",
   naverPassport.authenticate("naver", { failureRedirect: "/login" }),
   function (req, res) {
     res.redirect("/profile");

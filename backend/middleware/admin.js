@@ -1,5 +1,7 @@
 const config = require("config");
-const username = config.get("username");
+// const username = config.get("username");
+
+const username = "admin";
 
 module.exports = function (req, res, next) {
   const isAdmin = req.user.username === username;
